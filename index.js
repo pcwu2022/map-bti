@@ -190,7 +190,8 @@ import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/fireb
     // create connection
     const connectionButton = document.getElementById("connection");
     connectionButton.addEventListener("click", async () => {
-        const link = location.host + "/?inviter=" + username + "&time=" + (new Date()).getTime();
+        const q = location.href.indexOf("?");
+        const link = location.href.substring(0, (q === -1)?location.href.length:q) + "?inviter=" + username + "&time=" + (new Date()).getTime();
         Swal.fire({
             title: "傳送連結給你的朋友",
             html: `

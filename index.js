@@ -48,7 +48,7 @@ import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/fireb
             {
                 selector: 'node',
                 style: {
-                    'background-image': function(ele){return `/img/${ele.data('value.mbti')}.png`},
+                    'background-image': function(ele){return `./img/${ele.data('value.mbti')}.png`},
                     'background-width': '100%',
                     'background-height': '100%',
                     'label': function(ele){return (ele.data('value.username') === username)?"You":ele.data('value.username'); }, // Display the node ID

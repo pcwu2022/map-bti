@@ -189,7 +189,7 @@ import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/fireb
 
     // create connection
     const connectionButton = document.getElementById("connection");
-    connectionButton.addEventListener("click", async () => {
+    const jumpConnectionPrompt = async () => {
         const q = location.href.indexOf("?");
         const link = location.href.substring(0, (q === -1)?location.href.length:q) + "?inviter=" + username + "&time=" + (new Date()).getTime();
         Swal.fire({
@@ -201,8 +201,10 @@ import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/fireb
                 document.getElementById('clipboard').innerHTML = '已複製✅';
 })()">複製到剪貼簿</button>
             `
-        })
-    });
+        });
+    }
+    connectionButton.addEventListener("click", jumpConnectionPrompt);
+    setTimeout(jumpConnectionPrompt, 5000);
 
     // detect inviter
     let searchParams = location.search;

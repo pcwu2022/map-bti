@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <title>Map-BTI</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.4/cytoscape.min.js" integrity="sha512-xpXUCbrkyJCwC5noJXZqec9rSXdRgFfDoL7Q9/pCPe54Y04OlqwPobMcNuA5NPJ7DRR51OIr6xcOH2wUspyKDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <script src="https://unpkg.com/layout-base/layout-base.js"></script>
+        <script src="https://unpkg.com/cose-base/cose-base.js"></script>
+        <script src="https://unpkg.com/cytoscape-fcose/cytoscape-fcose.js"></script>
+
+    </head>
+    <body>
+        <h3>Map-BTI &nbsp;&nbsp; <button id="connection">建立朋友連結</button></h3>
+        <div>歡迎使用 Map-BTI！輸入你的 MBTI後，建立連結，傳送給你的朋友們。你的朋友點開連結後，就會跟你連成一條線。一起壯大這個社群，看看你身邊朋友個性的真實面貌！</div>
+        <div id="cy"></div>
+        <script src="graph.js"></script>
+        <script type="module" src="index.js"></script>
+    </body>
+</html>

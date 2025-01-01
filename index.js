@@ -191,7 +191,7 @@ import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/fireb
     const connectionButton = document.getElementById("connection");
     const jumpConnectionPrompt = async () => {
         const q = location.href.indexOf("?");
-        const link = location.href.substring(0, (q === -1)?location.href.length:q) + "?inviter=" + username + "&time=" + (new Date()).getTime();
+        const link = location.href.substring(0, (q === -1)?location.href.length:q) + "?inviter=" + encodeURI(username) + "&time=" + (new Date()).getTime();
         Swal.fire({
             title: "傳送連結給你的朋友",
             html: `
@@ -211,7 +211,7 @@ import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/fireb
     let index = searchParams.indexOf("?inviter=");
     let indexEnd = searchParams.indexOf("&time=");
     if (index !== -1 && indexEnd !== -1){
-        let inviter = searchParams.substring(index + 9, indexEnd);
+        let inviter = decodeURI(searchParams.substring(index + 9, indexEnd));
         g.edgeId(inviter, username);
         await overwriteDatabase();
         g.degreesOfConnection(username);

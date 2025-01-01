@@ -195,7 +195,7 @@ import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/fireb
         Swal.fire({
             title: "傳送連結給你的朋友",
             html: `
-            你的朋友只要使用了這個連結點開，他們就會獲得一條跟你的連線：<u>${link}</u>
+            這個連結是<b>專屬於你的</b>！你的朋友只要使用了這個連結點開，他們就會獲得一條跟你的連線：<u>${link}</u>
             <button id="clipboard" onclick="((e) => {
                 navigator.clipboard.writeText('${link}');
                 document.getElementById('clipboard').innerHTML = '已複製✅';
@@ -204,7 +204,7 @@ import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/fireb
         });
     }
     connectionButton.addEventListener("click", jumpConnectionPrompt);
-    setTimeout(jumpConnectionPrompt, 5000);
+    setTimeout(jumpConnectionPrompt, 3000);
 
     // detect inviter
     let searchParams = location.search;

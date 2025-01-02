@@ -217,9 +217,24 @@ import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/fireb
         g.degreesOfConnection(username);
     }
 
+    // refresh cy
     const elsRemoved = cy.elements().remove();
     elsRemoved.restore();
     // g.cytoscapeInit(cy); 
+
+    // sort social connections
+    const idListCopy = JSON.parse(JSON.stringify(g.idList));
+    idListCopy.sort((a, b) => g.adjList[b].length - g.adjList[a].length);
+    console.log(idListCopy);
+    const rankingDiv = document.getElementById("ranking");
+    const ol = document.createElement("ol");
+    for (let i = 0; i < Math.min(5, idListCopy.length); i++){
+        const id = idListCopy[i];
+        const li = document.createElement("li");
+        li.innerHTML = `${id}: ${g.adjList[id].length - 1}`;
+        ol.appendChild(li);
+    }
+    rankingDiv.appendChild(ol);
 
     const restart = () => {
         g.insert(new Node("ddm4535", {username: "ddm4534", mbti: "ENFJ"}))
